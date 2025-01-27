@@ -219,50 +219,50 @@ function App() {
         <div className="game-info">
           <h1>1 to 50</h1>
           {isPlaying && (
-            <>
-              <div className="game-stats">
-                <div className="stat-item">
-                  <span className="stat-label">현재 숫자</span>
-                  <span className="stat-value">{current}</span>
+              <>
+                <div className="game-stats">
+                  <div className="stat-item">
+                    <span className="stat-label">현재 숫자</span>
+                    <span className="stat-value">{current}</span>
+                  </div>
+                  <div className="stat-item">
+                    <span className="stat-label">시간</span>
+                    <span className="stat-value">{time}</span>
+                  </div>
+                  <div className="stat-item">
+                    <span className="stat-label">점수</span>
+                    <span className="stat-value">{score.toLocaleString()}</span>
+                  </div>
+                  <div className="stat-item">
+                    <span className="stat-label">음악</span>
+                    <button
+                        className={`music-button ${isMusicPlaying ? 'playing' : ''}`}
+                        onClick={toggleMusic}
+                    >
+                      {isMusicPlaying ? '🔊' : '🔈'}
+                    </button>
+                  </div>
+                  <div className="stat-item">
+                    <button
+                        className="cancel-button"
+                        onClick={cancelGame}
+                        aria-label="게임 취소"
+                    >
+                      ✕
+                    </button>
+                  </div>
                 </div>
-                <div className="stat-item">
-                  <span className="stat-label">시간</span>
-                  <span className="stat-value">{time}</span>
-                </div>
-                <div className="stat-item">
-                  <span className="stat-label">점수</span>
-                  <span className="stat-value">{score.toLocaleString()}</span>
-                </div>
-                <div className="stat-item">
-                  <button 
-                    className={`music-button ${isMusicPlaying ? 'playing' : ''}`}
-                    onClick={toggleMusic}
-                    aria-label={isMusicPlaying ? '음악 끄기' : '음악 켜기'}
-                  >
-                    {isMusicPlaying ? '🔊' : '🔈'}
-                  </button>
-                </div>
-                <div className="stat-item">
-                  <button 
-                    className="cancel-button"
-                    onClick={cancelGame}
-                    aria-label="게임 취소"
-                  >
-                    ✕
-                  </button>
-                </div>
-              </div>
-            </>
+              </>
           )}
           {!isPlaying && !showComplete && (
-            <>
-              <p className="game-description">
-                1부터 50까지 순서대로 빠르게 클릭하세요!<br/>
-                <small>빠를수록 더 높은 점수를 획득할 수 있습니다</small>
-              </p>
-              <div className="main-buttons">
-                <motion.button 
-                  className="start-button" 
+              <>
+                <p className="game-description">
+                  1부터 50까지 순서대로 빠르게 클릭하세요!<br/>
+                  <small>빠를수록 더 높은 점수를 획득할 수 있습니다</small>
+                </p>
+                <div className="main-buttons">
+                <motion.button
+                  className="start-button"
                   onClick={() => {
                     playButtonSound();
                     initializeGame();
@@ -272,7 +272,7 @@ function App() {
                 >
                   게임 시작
                 </motion.button>
-                <motion.button 
+                <motion.button
                   className="ranking-button"
                   onClick={() => {
                     playButtonSound();
@@ -287,9 +287,9 @@ function App() {
             </>
           )}
         </div>
-        
+
         {isPlaying && (
-          <motion.div 
+          <motion.div
             className="game-board"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

@@ -171,31 +171,33 @@
 .number-cell {
   height: auto;
   aspect-ratio: 1;
-  font-size: clamp(16px, 4vw, 24px);
+  font-size: clamp(20px, 5vw, 32px);
   padding: 5px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   border: none;
-  border-radius: 12px;
+  border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease, box-shadow 0.3s ease;
-  color: #333;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #1a2a6c;
+  font-weight: bold;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   position: relative;
   overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .number-cell:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   background: rgba(255, 255, 255, 1);
 }
 
 .number-cell:active {
   transform: translateY(1px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .number-cell::before {
@@ -219,10 +221,10 @@
 }
 
 .number-cell.completed {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
   color: transparent;
   box-shadow: none;
-  transform: scale(0.95);
+  transform: scale(0.92);
 }
 
 .start-button,
@@ -303,21 +305,21 @@
 }
 
 .number-cell.clicked {
-  animation: clickEffect 0.3s ease-out;
+  animation: clickEffect 0.4s ease-out;
 }
 
 @keyframes clickEffect {
   0% {
     transform: scale(1);
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
   }
   50% {
-    transform: scale(0.9);
-    background: rgba(255, 255, 255, 1);
+    transform: scale(0.85);
+    background: rgba(74, 175, 80, 0.2);
   }
   100% {
     transform: scale(1);
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
   }
 }
 
@@ -718,6 +720,17 @@
     height: 35px;
     font-size: 18px;
   }
+
+  .number-cell {
+    font-size: clamp(18px, 4.5vw, 28px);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  }
+
+  .game-board {
+    gap: min(1.5vw, 8px);
+    padding: 10px;
+  }
 }
 
 /* 가로 모드 대응 */
@@ -752,7 +765,7 @@
   }
 
   .number-cell {
-    font-size: 28px;
+    font-size: clamp(24px, 5vw, 36px);
   }
 
   .game-info {
@@ -777,22 +790,6 @@
   gap: 20px;
   justify-content: center;
   margin-top: 30px;
-}
-
-.ranking-button {
-  padding: 20px 40px;
-  font-size: 24px;
-  background: linear-gradient(45deg, #2196F3, #1976D2);
-  color: white;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: bold;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .close-button {
