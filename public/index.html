@@ -9,6 +9,10 @@
       name="description"
       content="Web site created using create-react-app"
     />
+    <meta name="google-site-verification" content="your-verification-code" />
+    <meta property="al:android:url" content="intent://1to50game/#Intent;scheme=https;package=com.android.chrome;end" />
+    <meta property="al:android:package" content="com.android.chrome" />
+    <meta property="al:android:app_name" content="Chrome" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -26,6 +30,29 @@
     -->
     <title>허우진의 1 to 50 Game</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      function openInChrome() {
+        var isAndroid = /Android/i.test(navigator.userAgent);
+        if (isAndroid) {
+          var intentUrl = 'intent://' + window.location.host + window.location.pathname + 
+                         '#Intent;scheme=https;package=com.android.chrome;end';
+          
+          if (!/Chrome/.test(navigator.userAgent)) {
+            try {
+              window.location.href = intentUrl;
+              
+              setTimeout(function() {
+                window.location.href = window.location.href;
+              }, 2000);
+            } catch(e) {
+              console.log('Failed to open in Chrome:', e);
+            }
+          }
+        }
+      }
+
+      window.onload = openInChrome;
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
