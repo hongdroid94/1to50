@@ -167,13 +167,14 @@ function App() {
 
   // 컴포넌트 마운트 시 배경음악 설정
   useEffect(() => {
-    bgMusic.current.loop = true;
-    bgMusic.current.volume = 0.3;  // 배경음악 볼륨을 30%로 설정
+    const music = bgMusic.current;
+    music.loop = true;
+    music.volume = 0.3;
     
     // 컴포넌트 언마운트 시 정리
     return () => {
-      bgMusic.current.pause();
-      bgMusic.current.currentTime = 0;
+      music.pause();
+      music.currentTime = 0;
     };
   }, []);
 
