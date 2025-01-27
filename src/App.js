@@ -81,7 +81,9 @@ function App() {
       if (error) throw error;
       
       fetchRankings();
-      setShowRankings(true);
+      setShowRankings(false);  // 랭킹 팝업 닫기
+      setShowComplete(false);  // 완료 팝업 닫기
+      setPlayerName('');      // 닉네임 초기화
     } catch (error) {
       console.error('Error saving score:', error);
       setNotification({
@@ -198,6 +200,19 @@ function App() {
     buttonSound.current.play();
   };
 
+  // 게임 취소 함수 추가
+  const cancelGame = () => {
+    setIsPlaying(false);
+    setNumbers([]);
+    setNextNumbers([]);
+    setCurrent(1);
+    setTime(0);
+    setScore(0);
+    bgMusic.current.pause();
+    bgMusic.current.currentTime = 0;
+    setIsMusicPlaying(false);
+  };
+
   return (
     <div className="App">
       <div className="game-container">
@@ -225,6 +240,15 @@ function App() {
                     aria-label={isMusicPlaying ? '음악 끄기' : '음악 켜기'}
                   >
                     {isMusicPlaying ? '🔊' : '🔈'}
+                  </button>
+                </div>
+                <div className="stat-item">
+                  <button 
+                    className="cancel-button"
+                    onClick={cancelGame}
+                    aria-label="게임 취소"
+                  >
+                    ✕
                   </button>
                 </div>
               </div>

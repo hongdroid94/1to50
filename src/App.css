@@ -96,9 +96,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 12px;
-  backdrop-filter: blur(5px);
   transition: transform 0.3s ease;
   height: auto;
 }
@@ -229,7 +228,7 @@
 .start-button,
 .ranking-button {
   padding: 20px 40px;
-  font-size: 24px;
+  font-size: 22px;
   color: white;
   border: none;
   border-radius: 50px;
@@ -713,6 +712,12 @@
     height: 40px;
     font-size: 20px;
   }
+
+  .cancel-button {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
 }
 
 /* 가로 모드 대응 */
@@ -911,4 +916,36 @@
 /* 인게임 음악 버튼은 제거 */
 .main-buttons .music-button {
   display: none;
+}
+
+/* 취소 버튼 스타일 추가 */
+.cancel-button {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  margin: 0;
+  background: rgba(255, 87, 87, 0.2);
+  border-radius: 50%;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cancel-button:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 87, 87, 0.3);
+}
+
+/* 모바일 환경에서의 버튼 크기 조정 */
+@media screen and (max-width: 480px) {
+  .cancel-button {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
 }
